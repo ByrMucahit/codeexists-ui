@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import { Alert } from 'antd';
+import {Alert} from 'antd';
 import 'antd/dist/antd.css';
 import axios from "axios";
 
@@ -10,6 +10,21 @@ const MapProvider = (props) => {
 
     const [longitude, setLongitude] = useState(-73.961452);
     const [latitude, setLatitude] = useState(40.714224);
+
+    const onClose = (e) => {
+        console.log(e, 'I was closed.');
+    };
+    const showError = (e) => {
+        return (<>
+            <Alert
+                message="Error Text"
+                description={e}
+                type="error"
+                closable
+                onClose={onClose}
+            />
+        </>);
+    }
 
 
     const mapRequest = (state) => {
@@ -22,17 +37,18 @@ const MapProvider = (props) => {
             },
         });
 
-        ins.post('/api/getLocation',state).then((response)=>{
+        ins.post('/api/getLocation', state).then((response) => {
             console.log('auth response: ', response.data);
-            if(response.status === 200 || response.status === 201) {
+            if (response.status === 200 || response.status === 201) {
                 console.log('response: ', response);
                 setLatitude(response.data.latitude)
                 setLongitude(response.data.longitude);
             }
 
-        }).catch((e)=>{
-            console.log('response error: ', e?.response);
-            <Alert message="Error Text" type="error" />
+        }).catch((e) => {
+            console.log('response error: ', e?.response.data.error);
+            alert(e?.response.data.error);
+            showError(e?.response.data.error);
         });
 
     }
@@ -43,7 +59,7 @@ const MapProvider = (props) => {
         <MapContext.Provider value={{longitude, latitude, mapRequest}}>
             {props.children}
         </MapContext.Provider>
-    )
+    );
 }
 
 

@@ -6,8 +6,8 @@ const MainPage = () => {
 
 
     return (
-        <div>
-            <div>
+        <div className={styles.container}>
+            <div className={styles.formContainer}>
                 <LatitudeLongitudeForm/>
             </div>
             <div className={styles.map}>
