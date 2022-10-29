@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+
+    .inputContainer {
+        display: flex;
+        justify-content: space-around;
+
+        label + input {
+            margin-left: 10px;
+        }
+    }
+
+    .buttonContainer {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10px;
+        padding-top: 10px;
+
+        .formButton {
+            max-width: 500px;
+            min-width: 100px;
+            height: 1.5rem;
+
+        }
+    }
+
+
+}
+
+

@@ -1,0 +1,17 @@
+.map {
+    height: 100%;
+    max-height: 500px;
+    width: 100% !important;
+    background-color: red;
+
+    #__next {
+        height: 100%;
+    }
+    #map {
+        height: 100%;
+    }
+}
+
+.next {
+    height: 100%;
+}
