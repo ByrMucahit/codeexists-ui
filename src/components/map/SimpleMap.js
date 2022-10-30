@@ -10,7 +10,7 @@ const SimpleMap = () => {
 
     useEffect(() => {
         const loader = new Loader({
-            apiKey: process.env.GOOGLE_API_KEY,
+            apiKey: "AIzaSyCSuSos8e9vb8GguM_DKxJe6Lsh2xDiSB8",
             version: 'quarterly',
         });
         let map;
