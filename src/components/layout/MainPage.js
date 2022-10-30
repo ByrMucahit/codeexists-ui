@@ -3,8 +3,6 @@ import LatitudeLongitudeForm from "../form/latitudeLongitudeForm";
 import styles from './index.module.css'
 
 const MainPage = () => {
-
-
     return (
         <div className={styles.container}>
             <div className={styles.formContainer}>
